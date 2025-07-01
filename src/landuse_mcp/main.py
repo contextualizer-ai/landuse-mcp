@@ -47,7 +47,7 @@ def _ensure_nlcd_data():
 
 
 # Function to get land cover value from NLCD
-def get_land_cover(lat, lon, dataset):
+def get_land_cover(lat, lon, dataset=EXTRACTED_TIF_PATH) -> Optional[int]:
     """
     Given a latitude and longitude and a GeoTIFF dataset, retrieve and return data
     for the lat/long
@@ -55,7 +55,7 @@ def get_land_cover(lat, lon, dataset):
     Args:
         lat: latitude of the point
         lon: longitude of the point
-        dataset: GeoTIFF dataset to query
+        dataset: GeoTIFF dataset to query (EXTRACTED_TIF_PATH by default)
 
     Returns:
         int: Land cover value at the specified latitude and longitude
