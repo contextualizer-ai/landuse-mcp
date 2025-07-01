@@ -19,7 +19,7 @@ import urllib.request
 NLCD_URL = "https://www.mrlc.gov/downloads/sciweb1/shared/mrlc/data-bundles/Annual_NLCD_LndCov_2024_CU_C1V1.zip"
 DATA_DIR = Path("data")
 ZIP_FILENAME = DATA_DIR / "Annual_NLCD_LndCov_2024_CU_C1V1.zip"
-EXTRACTED_TIF_NAME = "NLCD_2024_Land_Cover_L48.img"  # replace with actual name if different
+EXTRACTED_TIF_NAME = "data/Annual_NLCD_LndCov_2024_CU_C1V1.tif"
 EXTRACTED_TIF_PATH = DATA_DIR / EXTRACTED_TIF_NAME
 
 
