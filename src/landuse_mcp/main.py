@@ -3,14 +3,10 @@
 # This module provides a FastMCP wrapper for the database_name API
 # cribbed from Mark Miller's code [here](https://github.com/microbiomedata/external-metadata-awareness/blob/1cf68ade4bf2e90612f8c1a0aa028226332b9e71/notebooks/studies_exploration/predict_env_local_scale_from_nlcd_geotiff.ipynb#L35)
 ################################################################################
+import zipfile
 from typing import Any, Dict, List, Optional, Union
 from fastmcp import FastMCP
 from rasterio.warp import transform
-
-
-
-
-import zipfile
 from pathlib import Path
 import urllib.request
 
