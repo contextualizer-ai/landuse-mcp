@@ -1,0 +1,36 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "landuse-mcp"
+version = "0.1.0"
+description = "An MCP for retrieving land use data for a given location"
+readme = "README.md"
+authors = [
+    {name = "Mark Miller, Justin Reese, Charles Parker", email = "your.email@example.com"},
+]
+requires-python = ">=3.11"
+dependencies = [
+    "fastmcp>=2.7.1",
+    "requests>=2.32.4",
+]
+
+[dependency-groups]
+dev = [
+  "pytest",
+  "black",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/justaddcoffee/landuse-mcp"
+"Bug Tracker" = "https://github.com/justaddcoffee/landuse-mcp/issues"
+
+[project.scripts]
+landuse-mcp = "landuse_mcp.main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/landuse_mcp"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
