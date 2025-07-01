@@ -53,11 +53,13 @@ def get_land_cover(lat, lon, dataset):
     for the lat/long
 
     Args:
-        lat:
-        lon:
-        dataset:
+        lat: latitude of the point
+        lon: longitude of the point
+        dataset: GeoTIFF dataset to query
 
     Returns:
+        int: Land cover value at the specified latitude and longitude
+        or None if things go wrong
 
     """
     try:
