@@ -45,3 +45,4 @@ venv.bak/
 .vscode/
 *.swp
 *.swo
+data/

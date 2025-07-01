@@ -9,7 +9,10 @@ You can install the package from source:
 # to install rasterio 
 
 ```bash
-# this only works for MacOS - if you are on Linux, please refer to the rasterio documentation
+# Install GDAL, the Geospatial Data Abstraction Library, for dealing with GeoTIFF files
+
+# code below only works for MacOS - if you are on Linux, please refer to the rasterio
+# documentation 
 # for linux, try apt-get install gdal or something similar
 # for Windows, not sure
 # docs are [here](https://rasterio.readthedocs.io/en/stable/#)
