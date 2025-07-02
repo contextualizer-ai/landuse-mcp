@@ -47,7 +47,7 @@ git clone https://github.com/justaddcoffee/landuse-mcp.git
 cd landuse-mcp
 
 # Install development dependencies
-uv pip install -e ".[dev]"
+uv sync
 ```
 
 
