@@ -6,21 +6,12 @@ An MCP for retrieving land use data for a given location
 
 You can install the package from source:
 
-# to install rasterio 
+Install proj
 
+### For MacOS:
 ```bash
-# Install GDAL, the Geospatial Data Abstraction Library, for dealing with GeoTIFF files
-
-# code below only works for MacOS - if you are on Linux, please refer to the rasterio
-# documentation 
-# for linux, try apt-get install gdal or something similar
-# for Windows, not sure
-# docs are [here](https://rasterio.readthedocs.io/en/stable/#)
-brew install gdal
-export CPLUS_INCLUDE_PATH=$(brew --prefix gdal)/include
-export C_INCLUDE_PATH=$(brew --prefix gdal)/include
-export GDAL_CONFIG=$(brew --prefix gdal)/bin/gdal-config
-uv add rasterio
+brew install proj
+brew link proj
 ```
 
 ```bash

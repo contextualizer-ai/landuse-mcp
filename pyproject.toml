@@ -15,6 +15,9 @@ dependencies = [
     "fastmcp>=2.7.1",
     "pandas>=2.3.0",
     "requests>=2.32.4",
+    "geotiff",
+    "zarr==2.18.3",
+    "numcodecs==0.13.1",
 ]
 
 [dependency-groups]
