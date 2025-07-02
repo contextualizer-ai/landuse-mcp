@@ -6,7 +6,8 @@
 import zipfile
 from typing import Any, Dict, List, Optional, Union
 from fastmcp import FastMCP
-from geotiff import GeoTiff
+import rasterio
+from rasterio.warp import transform
 from pathlib import Path
 import urllib.request
 
@@ -15,7 +16,7 @@ import urllib.request
 NLCD_URL = "https://www.mrlc.gov/downloads/sciweb1/shared/mrlc/data-bundles/Annual_NLCD_LndCov_2024_CU_C1V1.zip"
 DATA_DIR = Path("data")
 ZIP_FILENAME = DATA_DIR / "Annual_NLCD_LndCov_2024_CU_C1V1.zip"
-EXTRACTED_TIF_NAME = "data/Annual_NLCD_LndCov_2024_CU_C1V1.tif"
+EXTRACTED_TIF_NAME = "Annual_NLCD_LndCov_2024_CU_C1V1.tif"
 EXTRACTED_TIF_PATH = DATA_DIR / EXTRACTED_TIF_NAME
 
 
@@ -59,23 +60,16 @@ def get_land_cover(lat, lon, dataset=EXTRACTED_TIF_PATH) -> Optional[int]:
 
     """
     try:
-        # Load the GeoTIFF with geotiff package
-        geo_tiff = GeoTiff(str(dataset))
-        
-        # Create a small bounding box around the point to sample
-        # Using a very small area (0.0001 degrees) around the point
-        area_box = [(lon - 0.0001, lat - 0.0001), (lon + 0.0001, lat + 0.0001)]
-        
-        # Read the data for this small area
-        array = geo_tiff.read_box(area_box)
-        
-        # Get the center value (our point of interest)
-        if array.size > 0:
-            center_idx = array.shape[0] // 2, array.shape[1] // 2
-            return int(array[center_idx])
-        else:
-            return None
+        with rasterio.open(str(dataset)) as src:
+            # Transform coordinates to the GeoTIFF's CRS
+            dst_crs = src.crs
+            lon_transformed, lat_transformed = transform('EPSG:4326', dst_crs, [lon], [lat])
             
+            # Query the pixel value at the transformed coordinate
+            coords = [(lon_transformed[0], lat_transformed[0])]
+            for val in src.sample(coords):
+                return int(val[0])
+                
     except Exception as e:
         print(f"Error processing point ({lat}, {lon}): {e}")
         return None

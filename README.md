@@ -8,17 +8,13 @@ You can install the package from source:
 
 Install proj
 
-### For MacOS:
+### For MacOS 12:
 ```bash
-brew install proj
-brew link proj
+brew install --cask miniforge
+conda create -n landuse python=3.10
+conda activate landuse
+conda install rasterio geopandas
 ```
-
-```bash
-pip install -e .
-```
-
-Or using uv:
 
 ```bash
 uv pip install -e .
