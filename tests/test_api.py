@@ -1,4 +1,4 @@
-from src.landuse_mcp.main import get_elevation, get_soil_type, get_landuse_dates, get_land_cover
+from src.landuse_mcp.main import get_soil_type, get_landuse_dates, get_land_cover
 
 
 def test_reality():
