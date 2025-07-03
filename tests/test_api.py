@@ -1,10 +1,6 @@
 from src.landuse_mcp.main import get_soil_type, get_landuse_dates, get_land_cover
 
 
-def test_reality():
-    assert 1 == 1
-
-
 def test_get_soil_type():
     """Test soil type function with known coordinates."""
     # Test with Alabama coordinates (should return "Cambisols")
