@@ -31,11 +31,8 @@ make demo
 ### From PyPI (Recommended)
 
 ```bash
-# Install with uv
+# Install with uvx
 uvx landuse-mcp
-
-# Or install with pip
-pip install landuse-mcp
 ```
 
 ### From Source
@@ -99,8 +96,8 @@ Add this to your Claude Desktop configuration file (`~/Library/Application Suppo
 {
   "mcpServers": {
     "landuse-mcp": {
-      "command": "uv",
-      "args": ["run", "python", "src/landuse_mcp/main.py"],
+      "command": "uvx",
+      "args": ["landuse-mcp"],
       "cwd": "/path/to/landuse-mcp"
     }
   }
@@ -110,13 +107,13 @@ Add this to your Claude Desktop configuration file (`~/Library/Application Suppo
 ### Claude Code
 
 ```bash
-claude mcp add -s project landuse-mcp uv run python src/landuse_mcp/main.py
+claude mcp add -s project landuse-mcp uvx landuse-mcp
 ```
 
 ### Goose
 
 ```bash
-goose session --with-extension "uv run python src/landuse_mcp/main.py"
+goose session --with-extension "uvx landuse-mcp"
 ```
 
 ## Available Tools
@@ -198,7 +195,7 @@ make test-mcp test-mcp-extended
 ## Requirements
 
 - Python 3.10+
-- uv (recommended) or pip
+- uv (recommended)
 - Dependencies managed via `pyproject.toml`
 
 ## License

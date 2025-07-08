@@ -134,15 +134,15 @@ demo:
 #   {
 #     "mcpServers": {
 #       "landuse-mcp": {
-#         "command": "uv",
-#         "args": ["run", "python", "src/landuse_mcp/main.py"],
+#         "command": "uvx",
+#         "args": ["landuse-mcp"],
 #         "cwd": "/path/to/landuse-mcp"
 #       }
 #     }
 #   }
 #
 # Claude Code MCP setup:
-#   claude mcp add -s project landuse-mcp uv run python src/landuse_mcp/main.py
+#   claude mcp add -s project landuse-mcp uvx landuse-mcp
 #
 # Goose setup:
-#   goose session --with-extension "uv run python src/landuse_mcp/main.py"
+#   goose session --with-extension "uvx landuse-mcp"
