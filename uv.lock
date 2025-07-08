@@ -656,7 +656,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "fastmcp", specifier = ">=2.7.1" },
-    { name = "nmdc-geoloc-tools" },
+    { name = "nmdc-geoloc-tools", git = "https://github.com/microbiomedata/geoloc-tools.git" },
     { name = "pandas", specifier = ">=2.3.0" },
     { name = "requests", specifier = ">=2.32.4" },
 ]
@@ -808,14 +808,10 @@ wheels = [
 
 [[package]]
 name = "nmdc-geoloc-tools"
-version = "0.2.0"
-source = { registry = "https://pypi.org/simple" }
+version = "0.2.0.post28.dev0+371319d"
+source = { git = "https://github.com/microbiomedata/geoloc-tools.git#371319df1562e1527ab1489c63275caa59f1e8c7" }
 dependencies = [
     { name = "requests" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/50/c7/2eaa78fdee524bfa9282460056c87a17bff4838bf1ad950dd84da765e0b4/nmdc_geoloc_tools-0.2.0.tar.gz", hash = "sha256:64441520222856467a40475954e577d9e7266d2f0c27cae75720142d67d6dc15", size = 8849 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/d7/f8/ad25b9727b35921a309d1ff77edeb82388b1f152305822a3138880d73e15/nmdc_geoloc_tools-0.2.0-py3-none-any.whl", hash = "sha256:3ec3ee0a722280ed64eeaab550868e94994443d81f2a779c16629e1f1a792157", size = 9872 },
 ]
 
 [[package]]
