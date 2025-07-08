@@ -29,8 +29,8 @@ def main():
     all_passed = True
     for lat, lon, location in test_cases:
         result = get_soil_type(lat, lon)
-        status = '✅' if result else '❌'
-        if not result:
+        status = '✅' if result is not None else '❌'
+        if result is None:
             all_passed = False
         coord_str = f"({lat:8.4f}, {lon:9.4f})"
         print(f"{location:<15}\t{coord_str:<20}\t{result or 'FAILED':<15}\t{status}")

@@ -131,7 +131,7 @@ demo:
 
 # Test soil classification functionality
 test-soil:
-	uv run python test_soil_demo.py
+	uv run python examples/soil_demo.py
 
 # LANDUSE MCP - Claude Desktop config:
 #   Add to ~/Library/Application Support/Claude/claude_desktop_config.json:
