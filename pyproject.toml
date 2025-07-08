@@ -30,7 +30,7 @@ dependencies = [
     "fastmcp>=2.7.1",
     "pandas>=2.3.0",
     "requests>=2.32.4",
-    "nmdc-geoloc-tools",
+    "nmdc-geoloc-tools @ git+https://github.com/microbiomedata/geoloc-tools.git",
 ]
 
 [dependency-groups]
@@ -63,6 +63,9 @@ landuse-mcp = "landuse_mcp.main:main"
 
 [tool.hatch.version]
 source = "vcs"
+
+[tool.hatch.metadata]
+allow-direct-references = true
 
 [tool.hatch.build.hooks.vcs]
 version-file = "src/landuse_mcp/_version.py"
