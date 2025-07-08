@@ -1,3 +1,5 @@
+src/landuse_mcp/_version.py
+
 # Python
 __pycache__/
 *.py[cod]
