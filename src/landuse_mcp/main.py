@@ -3,14 +3,13 @@
 # This module provides a FastMCP wrapper for geolocation tools
 # Updated to use nmdc-geoloc-tools instead of rasterio for land use data
 ################################################################################
-from typing import Any, Dict, List, Optional, Union
 from fastmcp import FastMCP
-from nmdc_geoloc_tools import landuse, landuse_dates, elevation, fao_soil_type
+from nmdc_geoloc_tools import fao_soil_type, landuse, landuse_dates
 
 
-def get_land_cover(lat: float, lon: float,
-                   start_date: str = "2001-01-01",
-                   end_date: str = "2002-01-01") -> Optional[Dict]:
+def get_land_cover(
+    lat: float, lon: float, start_date: str = "2001-01-01", end_date: str = "2002-01-01"
+) -> dict | None:
     """
     Get land use data for a given latitude and longitude using nmdc-geoloc-tools.
 
@@ -32,7 +31,7 @@ def get_land_cover(lat: float, lon: float,
         return None
 
 
-def get_soil_type(lat: float, lon: float) -> Optional[str]:
+def get_soil_type(lat: float, lon: float) -> str | None:
     """
     Get FAO soil type for a given latitude and longitude.
 
@@ -52,7 +51,7 @@ def get_soil_type(lat: float, lon: float) -> Optional[str]:
         return None
 
 
-def get_landuse_dates(lat: float, lon: float) -> Optional[List[str]]:
+def get_landuse_dates(lat: float, lon: float) -> list[str] | None:
     """
     Get available dates for land use data at a given latitude and longitude.
 
@@ -74,7 +73,7 @@ def get_landuse_dates(lat: float, lon: float) -> Optional[List[str]]:
 
 # MAIN SECTION
 # Create the FastMCP instance
-mcp = FastMCP("landuse_mcp")
+mcp: FastMCP = FastMCP("landuse_mcp")
 
 # Register all tools
 mcp.tool(get_land_cover)
