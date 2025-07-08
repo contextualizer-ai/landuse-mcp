@@ -1,7 +1,7 @@
-.PHONY: test-coverage clean install dev format lint all server build upload-test upload release deptry mypy test-mcp test-mcp-extended test-integration
+.PHONY: test-coverage clean install dev format lint all server build upload-test upload release deptry mypy test-mcp test-mcp-extended test-integration test-soil
 
 # Default target
-all: clean install dev test-coverage format lint mypy deptry build test-mcp test-mcp-extended test-integration test-mcp-protocol
+all: clean install dev test-coverage format lint mypy deptry build test-mcp test-mcp-extended test-integration test-mcp-protocol test-soil
 
 # Install everything for development
 dev:
@@ -128,6 +128,10 @@ demo:
 	uv run python -c "from landuse_mcp.main import get_land_cover; print(get_land_cover(36.5322649, -116.9325408, '2001-01-01', '2002-01-01'))"
 	@echo ""
 	@echo "✅ Landuse-MCP provides geospatial land use data for AI agents!"
+
+# Test soil classification functionality
+test-soil:
+	uv run python test_soil_demo.py
 
 # LANDUSE MCP - Claude Desktop config:
 #   Add to ~/Library/Application Support/Claude/claude_desktop_config.json:
