@@ -30,7 +30,7 @@ classifiers = [
 keywords = ["mcp", "landuse", "geospatial", "nlcd", "gis"]
 dependencies = [
     "fastmcp>=2.7.1",
-    "pandas>=2.3.0",
+    # "pandas>=2.3.0",
     "requests>=2.32.4",
     "nmdc-geoloc-tools>=0.2.1",
 ]
@@ -55,10 +55,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/justaddcoffee/landuse-mcp"
-Repository = "https://github.com/justaddcoffee/landuse-mcp"
-Issues = "https://github.com/justaddcoffee/landuse-mcp/issues"
-Documentation = "https://github.com/justaddcoffee/landuse-mcp#readme"
+Homepage = "https://github.com/contextualizer-ai/landuse-mcp"
+Repository = "https://github.com/contextualizer-ai/landuse-mcp"
+Issues = "https://github.com/contextualizer-ai/landuse-mcp/issues"
+Documentation = "https://github.com/contextualizer-ai/landuse-mcp#readme"
 
 [project.scripts]
 landuse-mcp = "landuse_mcp.main:main"
@@ -164,5 +164,6 @@ DEP002 = [
     "black", "ruff", "mypy", "pytest", "pytest-asyncio", "pytest-cov", 
     "hatch-vcs", "hatchling", "twine", "hatch", "types-requests", "pip",
     # Dependencies used by nmdc-geoloc-tools but not directly imported
-    "pandas", "requests"
+    # "pandas", 
+    "requests"
 ]
