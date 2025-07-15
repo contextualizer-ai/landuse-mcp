@@ -61,7 +61,7 @@ Issues = "https://github.com/contextualizer-ai/landuse-mcp/issues"
 Documentation = "https://github.com/contextualizer-ai/landuse-mcp#readme"
 
 [project.scripts]
-landuse-mcp = "landuse_mcp.main:main"
+landuse-mcp = "landuse_mcp.__main__:main"
 
 [tool.hatch.version]
 source = "vcs"
