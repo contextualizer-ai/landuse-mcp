@@ -1,7 +1,7 @@
-.PHONY: test-coverage clean install dev format lint all server build upload-test upload release deptry mypy test-mcp test-mcp-extended test-integration test-soil
+.PHONY: test-coverage clean install dev format lint all server build upload-test upload release deptry mypy test-mcp test-mcp-extended test-integration test-soil test-version
 
 # Default target
-all: clean install dev test-coverage format lint mypy deptry build test-mcp test-mcp-extended test-integration test-mcp-protocol test-soil
+all: clean install dev test-coverage format lint mypy deptry build test-mcp test-mcp-extended test-integration test-mcp-protocol test-soil test-version
 
 # Install everything for development
 dev:
@@ -132,6 +132,11 @@ demo:
 # Test soil classification functionality
 test-soil:
 	uv run python examples/soil_demo.py
+
+# Test version flag
+test-version:
+	@echo "🔢 Testing version flag..."
+	uv run landuse-mcp --version
 
 # LANDUSE MCP - Claude Desktop config:
 #   Add to ~/Library/Application Support/Claude/claude_desktop_config.json:
