@@ -3,8 +3,16 @@
 # This module provides a FastMCP wrapper for geolocation tools
 # Updated to use nmdc-geoloc-tools instead of rasterio for land use data
 ################################################################################
+import sys
+from importlib import metadata
+
 from fastmcp import FastMCP
 from nmdc_geoloc_tools import fao_soil_type, landuse, landuse_dates
+
+try:
+    __version__ = metadata.version("landuse-mcp")
+except metadata.PackageNotFoundError:
+    __version__ = "unknown"
 
 
 def get_land_cover(
@@ -83,6 +91,9 @@ mcp.tool(get_landuse_dates)
 
 def main():
     """Main entry point for the application."""
+    if "--version" in sys.argv:
+        print(__version__)
+        sys.exit(0)
     mcp.run()
 
 
