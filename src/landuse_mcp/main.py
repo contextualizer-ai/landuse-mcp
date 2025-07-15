@@ -3,8 +3,8 @@
 # This module provides a FastMCP wrapper for geolocation tools
 # Updated to use nmdc-geoloc-tools instead of rasterio for land use data
 ################################################################################
-from importlib import metadata
 import sys
+from importlib import metadata
 
 from fastmcp import FastMCP
 from nmdc_geoloc_tools import fao_soil_type, landuse, landuse_dates

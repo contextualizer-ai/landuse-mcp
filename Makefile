@@ -108,17 +108,23 @@ test-mcp-protocol:
 
 # MCP Server testing
 test-mcp:
-	@echo "Testing MCP protocol handshake..."
-	echo '{"jsonrpc": "2.0", "method": "initialize", "params": {"protocolVersion": "1.0", "capabilities": {"tools": {}}, "clientInfo": {"name": "test-client", "version": "1.0.0"}}, "id": 1}' | timeout 3 uv run python src/landuse_mcp/main.py 2>/dev/null | head -1
-
-test-mcp-extended:
-	@echo "Testing MCP protocol initialization..."
+	@echo "Testing MCP protocol with tools listing..."
 	@(echo '{"jsonrpc": "2.0", "method": "initialize", "params": {"protocolVersion": "2025-03-26", "capabilities": {"tools": {}}, "clientInfo": {"name": "test-client", "version": "1.0.0"}}, "id": 1}'; \
 	 sleep 0.1; \
-	 echo '{"jsonrpc": "2.0", "method": "tools/list", "id": 2}'; \
+	 echo '{"jsonrpc": "2.0", "method": "notifications/initialized", "params": {}}'; \
 	 sleep 0.1; \
-	 echo '{"jsonrpc": "2.0", "method": "tools/call", "params": {"name": "get_land_cover", "arguments": {"lat": 36.5322649, "lon": -116.9325408, "start_date": "2001-01-01", "end_date": "2002-01-01"}}, "id": 3}') | \
-	timeout 5 uv run python src/landuse_mcp/main.py 2>/dev/null | head -10
+	 echo '{"jsonrpc": "2.0", "method": "tools/list", "id": 2}') | \
+	uv run python src/landuse_mcp/main.py
+
+test-mcp-extended:
+	@echo "Testing MCP protocol with tool execution..."
+	@(echo '{"jsonrpc": "2.0", "method": "initialize", "params": {"protocolVersion": "2025-03-26", "capabilities": {"tools": {}}, "clientInfo": {"name": "test-client", "version": "1.0.0"}}, "id": 1}'; \
+	 sleep 0.1; \
+	 echo '{"jsonrpc": "2.0", "method": "notifications/initialized", "params": {}}'; \
+	 sleep 0.1; \
+	 echo '{"jsonrpc": "2.0", "method": "tools/call", "params": {"name": "get_land_cover", "arguments": {"lat": 36.5322649, "lon": -116.9325408, "start_date": "2001-01-01", "end_date": "2002-01-01"}}, "id": 2}') | \
+	uv run python src/landuse_mcp/main.py
+
 
 # Demo functionality  
 demo:
