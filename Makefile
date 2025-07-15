@@ -122,7 +122,7 @@ test-mcp-extended:
 	 sleep 0.1; \
 	 echo '{"jsonrpc": "2.0", "method": "notifications/initialized", "params": {}}'; \
 	 sleep 0.1; \
-	 echo '{"jsonrpc": "2.0", "method": "tools/call", "params": {"name": "get_land_cover", "arguments": {"lat": 36.5322649, "lon": -116.9325408, "start_date": "2001-01-01", "end_date": "2002-01-01"}}, "id": 2}') | \
+	 echo '{"jsonrpc": "2.0", "method": "tools/call", "params": {"name": "get_land_cover", "arguments": {"lat": 36.5322649, "lon": -116.9325408, "start_date": "2001-01-01", "end_date": "2002-01-01"}}, "id": 3}') | \
 	uv run python src/landuse_mcp/main.py
 
 
